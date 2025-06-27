@@ -16,9 +16,8 @@ data "aws_ami" "amazon_linux_2023" {
 }
 
 # Route 53 Hosted Zone을 data로 조회 (이미 AWS에 Hosted Zone이 있어야 함)
-data "aws_route53_zone" "selected" {
+resource "aws_route53_zone" "main" {
   name         = var.domain_name
-  private_zone = false
 }
 
 #data "aws_ami" "my_ami" {

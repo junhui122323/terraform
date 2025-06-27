@@ -1,5 +1,5 @@
 resource "aws_route53_record" "alb_alias_record" {
-  zone_id = data.aws_route53_zone.selected.zone_id
+  zone_id = aws_route53_zone.main.zone_id
   name    = "alb.junhan.shop"
   type    = "A"
   alias {

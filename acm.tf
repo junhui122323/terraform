@@ -1,3 +1,4 @@
+
 resource "aws_acm_certificate" "public_cert" {
   domain_name               = var.fully_qualified_domain_name
   validation_method         = "DNS"
@@ -13,7 +14,7 @@ resource "aws_route53_record" "validation" {
       value = dvo.resource_record_value
     }
   }
-  zone_id = data.aws_route53_zone.selected.zone_id
+  zone_id = aws_route53_zone.main.zone_id
   name    = each.value.name
   type    = each.value.type
   ttl     = 60
